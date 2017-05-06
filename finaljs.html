@@ -1,0 +1,54 @@
+<html>
+
+<body>
+  <form name="myForm">
+    <p>Name:
+      <input type="text" id="namevalidate()" name="id">
+    </p>
+    <p>CELL:
+      <input type="text"  name="cell" id="cell">
+    </p>
+    <p>MAIL:
+      <input type="text" id="email" name="email">
+    </p>
+    <center>
+      <button onclick="funky()">Submit</button>
+    </center>
+
+  </form>
+  <script>
+  function funky() {
+    emailvalidate()
+    namevalidate()
+    cel()
+  
+  }
+    function emailvalidate() {
+      var x = document.forms["myForm"]["email"].value;
+      var atpos = x.indexOf("@");
+      var dotpos = x.lastIndexOf(".");
+      if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+      }
+    }
+    
+    function namevalidate() {
+      var a = document.forms["myForm"]["id"].value;
+      if (a === "") {
+        alert("Enter your Name");
+        return false;
+      }
+    }
+    function cel() {
+      var z = document.forms["myForm"]["cell"].value;
+      alert(/^\d{2}$/.test(z))
+      if (!/^\d{2}$/.test(z)) {
+        alert("Enter a valid number");
+        return false;
+      }
+    }
+  </script>
+</body>
+
+</html>
